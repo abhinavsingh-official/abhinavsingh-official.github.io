@@ -67,8 +67,8 @@
     label.className = "planet-label";
     label.textContent = SECTION_LABELS[body.target] || body.name;
 
-    item.appendChild(el);
     item.appendChild(label);
+    item.appendChild(el);
     rail.appendChild(item);
   });
 
