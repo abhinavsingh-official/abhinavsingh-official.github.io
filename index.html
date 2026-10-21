@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abhinav Singh</title>
+  <meta name="description" content="AI Associate working across machine learning, computer vision, NLP, and data engineering." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="starfield"></canvas>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#home" class="nav-brand">AS</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <p class="eyebrow">// transmission incoming</p>
+      <h1 class="glow-text">Abhinav Singh</h1>
+      <p class="hero-sub">AI Associate &mdash; Machine Learning &amp; Data Engineering</p>
+      <p class="hero-desc">
+        Building real, end-to-end systems across ML, computer vision, NLP, and the data
+        pipelines underneath them.
+      </p>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" id="resume-link" href="#" target="_blank" rel="noopener noreferrer">Resume</a>
+      </div>
+    </section>
+
+    <section id="about" class="panel">
+      <h2><span class="tag">01</span> About</h2>
+      <p>
+        I work across data engineering and machine learning &mdash; building ETL pipelines,
+        designing APIs, and developing prediction models end-to-end, from data cleaning and
+        feature engineering to deployment. Comfortable with SQL, Python, FastAPI, and the usual
+        ML tooling, with a growing focus on the data engineering side of things.
+      </p>
+      <p>
+        Currently deepening my Databricks experience and leaning further into large-scale data
+        engineering, alongside the ML work I already do.
+      </p>
+      <p>
+        Outside of work, I build and ship real end-to-end projects &mdash; computer vision, NLP,
+        and reliability-focused ML tooling &mdash; all public on GitHub.
+      </p>
+    </section>
+
+    <section id="projects" class="panel">
+      <h2><span class="tag">02</span> Projects</h2>
+      <div class="grid" id="projects-grid"></div>
+    </section>
+
+    <section id="experience" class="panel">
+      <h2><span class="tag">03</span> Experience</h2>
+      <div class="timeline" id="experience-timeline"></div>
+    </section>
+
+    <section id="skills" class="panel">
+      <h2><span class="tag">04</span> Skills</h2>
+      <div class="tag-row" id="skills-row"></div>
+    </section>
+
+    <section id="contact" class="panel panel-contact">
+      <h2><span class="tag">05</span> Contact</h2>
+      <p>Open to conversations about data engineering, ML, and interesting problems.</p>
+      <div class="contact-links">
+        <a href="https://github.com/abhinavsingh-official" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/abhinavsinghofficial" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <!-- TODO: add your personal contact email here, e.g. <a href="mailto:you@example.com">Email</a> -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Abhinav Singh &middot; <span id="year"></span></p>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="starfield.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
