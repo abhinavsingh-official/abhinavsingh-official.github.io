@@ -6,17 +6,18 @@
   const projectsGrid = document.getElementById("projects-grid");
   projectsGrid.innerHTML = PROJECTS.map((p) => `
     <article class="card">
-      <div class="card-top">
-        <h3>${p.name}</h3>
-        <span class="card-tag">${p.tag}</span>
+      <div class="card-image">
+        <img src="${p.image}" alt="${p.name} screenshot" loading="lazy" />
       </div>
-      <p>${p.desc}</p>
-      <div class="card-tech">
-        ${p.tech.map((t) => `<span class="chip">${t}</span>`).join("")}
-      </div>
-      <div class="card-links">
-        ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer">Live demo</a>` : ""}
-        <a href="${p.repo}" target="_blank" rel="noopener noreferrer">Source</a>
+      <div class="card-body">
+        <div class="card-top">
+          <h3>${p.name}</h3>
+          <span class="card-tag">${p.tag}</span>
+        </div>
+        <div class="card-links">
+          ${p.demo ? `<a class="btn btn-ghost btn-sm" href="${p.demo}" target="_blank" rel="noopener noreferrer">Live site</a>` : ""}
+          <a class="btn btn-ghost btn-sm" href="${p.repo}" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
       </div>
     </article>
   `).join("");
@@ -27,14 +28,14 @@
     <div class="timeline-item">
       <h3>${e.title} &mdash; ${e.org}</h3>
       <p class="timeline-meta">${e.location} &middot; ${e.dates}</p>
-      <ul>${e.points.map((pt) => `<li>${pt}</li>`).join("")}</ul>
+      <p class="timeline-summary">${e.summary}</p>
     </div>
   `).join("");
   const educationHtml = `
     <div class="timeline-item">
       <h3>${EDUCATION.degree} &mdash; ${EDUCATION.school}</h3>
       <p class="timeline-meta">${EDUCATION.dates}</p>
-      <ul>${EDUCATION.points.map((pt) => `<li>${pt}</li>`).join("")}</ul>
+      <p class="timeline-summary">${EDUCATION.summary}</p>
     </div>
   `;
   timeline.innerHTML = experienceHtml + educationHtml;
