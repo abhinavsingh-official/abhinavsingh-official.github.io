@@ -121,6 +121,8 @@ const SKILLS = [
 // Courses: NPTEL certificates (with score) + other industry certifications,
 // all backed by a real certificate image.
 const COURSES = [
+  { name: "Data Analytics Job Simulation", meta: "Deloitte Australia (Forage)", image: "assets/certs/other-deloitte-data-analytics.jpg" },
+  { name: "From Learner to Builder: AI Agent Architect", meta: "IBM SkillsBuild", image: "assets/certs/other-ibm-ai-agent-architect.jpg" },
   { name: "Business Intelligence & Analytics", meta: "NPTEL · 71%", image: "assets/certs/nptel-business-intelligence-analytics-1.jpg" },
   { name: "Foundation of Cloud IoT Edge ML", meta: "NPTEL · 72%", image: "assets/certs/nptel-foundation-of-cloud-iot-edge-ml-1.jpg" },
   { name: "Big Data Computing", meta: "NPTEL · 71%", image: "assets/certs/nptel-big-data-computing-1.jpg" },
@@ -131,8 +133,6 @@ const COURSES = [
   { name: "Data Mining", meta: "NPTEL · 60%", image: "assets/certs/nptel-data-mining-1.jpg" },
   { name: "Probability for Computer Science", meta: "NPTEL · 57%", image: "assets/certs/nptel-probability-for-computer-science-1.jpg" },
   { name: "Design and Analysis of Algorithms", meta: "NPTEL · 51%", image: "assets/certs/nptel-design-and-analysis-of-algorithms-1.jpg" },
-  { name: "From Learner to Builder: AI Agent Architect", meta: "IBM SkillsBuild", image: "assets/certs/other-ibm-ai-agent-architect.jpg" },
-  { name: "Data Analytics Job Simulation", meta: "Deloitte Australia (Forage)", image: "assets/certs/other-deloitte-data-analytics.jpg" },
   { name: "Data Analysis", meta: "SWAYAM", image: "assets/certs/other-swayam-data-analysis.jpg" },
 ];
 
