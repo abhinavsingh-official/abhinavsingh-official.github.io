@@ -359,7 +359,7 @@ section.in-view {
   font-size: 0.88rem;
 }
 
-/* ---------- Skills ---------- */
+/* ---------- Tag rows (used by Certifications' text-only extracurriculars) ---------- */
 
 .tag-row {
   display: flex;
@@ -371,6 +371,30 @@ section.in-view {
   font-size: 0.8rem;
   padding: 0.35rem 0.8rem;
   color: var(--text);
+}
+
+/* ---------- Personal ---------- */
+
+.personal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.personal-card {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.personal-card .subheading {
+  margin-top: 0;
+}
+
+.personal-card p {
+  color: var(--text);
+  margin: 0;
 }
 
 /* ---------- Contact ---------- */

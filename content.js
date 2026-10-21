@@ -111,12 +111,10 @@ const EDUCATION = {
   summary: "9.1 CGPA, data and AI focus. Placement Cell (2024–2026).",
 };
 
-const SKILLS = [
-  "Python", "SQL", "PyTorch", "scikit-learn", "OpenCV",
-  "Hugging Face / Transformers", "FastAPI", "Streamlit",
-  "PostgreSQL", "MongoDB", "Apache Spark", "Databricks",
-  "SQLite", "Docker", "Git",
-];
+const PERSONAL = {
+  reading: "A Biography of Franz Kafka by Max Brod",
+  playing: "The Amazing Spider-Man 2",
+};
 
 // Courses: NPTEL certificates (with score) + other industry certifications,
 // all backed by a real certificate image.

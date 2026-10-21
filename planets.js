@@ -17,7 +17,7 @@
     { name: "Jupiter", radiusKm: 69911, color: "#d9b38c", glow: "#b7875a", target: "#projects-nlp" },
     { name: "Saturn", radiusKm: 58232, color: "#e8d6a8", glow: "#c9a86a", ring: true, target: "#experience" },
     { name: "Uranus", radiusKm: 25362, color: "#9fe8e0", glow: "#5fc2b8", target: "#education" },
-    { name: "Neptune", radiusKm: 24622, color: "#5a7bdc", glow: "#3a53a8", target: "#skills" },
+    { name: "Neptune", radiusKm: 24622, color: "#5a7bdc", glow: "#3a53a8", target: "#personal" },
     { name: "Pluto", radiusKm: 1188, color: "#c9b8a8", glow: "#8f7d6c", target: "#certifications" },
   ];
 
@@ -33,7 +33,7 @@
     "#projects-nlp": "NLP & LLM",
     "#experience": "Experience",
     "#education": "Education",
-    "#skills": "Skills",
+    "#personal": "Personal",
     "#certifications": "Certifications",
   };
 

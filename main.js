@@ -48,10 +48,9 @@
     </div>
   `;
 
-  // ---------- Render Skills ----------
-  document.getElementById("skills-row").innerHTML = SKILLS
-    .map((s) => `<span class="chip">${s}</span>`)
-    .join("");
+  // ---------- Render Personal ----------
+  document.getElementById("personal-reading").textContent = PERSONAL.reading;
+  document.getElementById("personal-playing").textContent = PERSONAL.playing;
 
   // ---------- Render Certifications & Extracurriculars ----------
   const certCardHtml = (c) => `
