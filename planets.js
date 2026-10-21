@@ -44,12 +44,18 @@
   rail.className = "planet-rail";
   rail.setAttribute("aria-label", "Solar system section navigation");
 
-  BODIES.forEach((body) => {
+  BODIES.forEach((body, i) => {
     const size = sizeFor(body);
     const item = document.createElement("a");
     item.className = "planet-item";
     item.href = body.target;
     item.title = body.name;
+
+    // Gentle semi-circle: bulge outward (away from the viewport edge) in
+    // the middle of the rail, tapering back in at the top and bottom ends.
+    const t = i / (BODIES.length - 1);
+    const arc = Math.sin(t * Math.PI) * 26;
+    item.style.setProperty("--arc", `${arc}px`);
 
     const el = document.createElement("span");
     el.className = "planet" + (body.ring ? " planet-ring" : "");
