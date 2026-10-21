@@ -11,19 +11,24 @@
   const BODIES = [
     { name: "Sun", radiusKm: 696000, color: "#ffcf5c", glow: "#ffb703", target: "#home" },
     { name: "Mercury", radiusKm: 2440, color: "#b0a69b", glow: "#8d847a", target: "#about" },
-    { name: "Venus", radiusKm: 6052, color: "#e8c88f", glow: "#d9a441", target: "#about" },
-    { name: "Earth", radiusKm: 6371, color: "#5ad8ff", glow: "#3a9bd1", target: "#projects" },
-    { name: "Mars", radiusKm: 3390, color: "#e2654a", glow: "#b8402a", target: "#projects" },
-    { name: "Jupiter", radiusKm: 69911, color: "#d9b38c", glow: "#b7875a", target: "#projects" },
+    { name: "Venus", radiusKm: 6052, color: "#e8c88f", glow: "#d9a441", target: "#certifications" },
+    { name: "Earth", radiusKm: 6371, color: "#5ad8ff", glow: "#3a9bd1", target: "#projects-cv" },
+    { name: "Mars", radiusKm: 3390, color: "#e2654a", glow: "#b8402a", target: "#projects-data" },
+    { name: "Jupiter", radiusKm: 69911, color: "#d9b38c", glow: "#b7875a", target: "#projects-nlp" },
     { name: "Saturn", radiusKm: 58232, color: "#e8d6a8", glow: "#c9a86a", ring: true, target: "#experience" },
     { name: "Uranus", radiusKm: 25362, color: "#9fe8e0", glow: "#5fc2b8", target: "#skills" },
     { name: "Neptune", radiusKm: 24622, color: "#5a7bdc", glow: "#3a53a8", target: "#contact" },
   ];
 
+  // Every planet now has its own distinct label - no two point at the same
+  // place (Projects was split into three real categories for exactly this).
   const SECTION_LABELS = {
     "#home": "Home",
     "#about": "About",
-    "#projects": "Projects",
+    "#certifications": "Certifications",
+    "#projects-cv": "Computer Vision",
+    "#projects-data": "Data & MLOps",
+    "#projects-nlp": "NLP & LLM",
     "#experience": "Experience",
     "#skills": "Skills",
     "#contact": "Contact",
@@ -74,26 +79,37 @@
 
   document.body.appendChild(rail);
   const planetEls = Array.from(rail.children);
-  const sections = Array.from(document.querySelectorAll("main section[id]"));
 
-  // Highlights whichever planet(s) target the section currently nearest the
-  // top of the viewport, so a planet's glow always matches what's actually
-  // on screen - including right after clicking a planet to jump somewhere,
-  // not just during organic scrolling.
-  function currentSectionId() {
-    let current = sections[0];
-    for (const section of sections) {
-      if (section.getBoundingClientRect().top <= 120) current = section;
-    }
-    return current ? current.id : null;
+  // Each planet now targets a distinct element (a top-level section or a
+  // subheading inside Projects/Certifications), so highlighting is based
+  // directly on those same target elements' positions, not a separate
+  // "section" concept - whichever target is nearest the top of the
+  // viewport is the active one, matching what's actually on screen
+  // (including right after clicking a planet to jump somewhere).
+  const targetEls = BODIES.map((b) => document.querySelector(b.target));
+
+  function currentTarget() {
+    // The element whose top is <= 120 but closest to it (i.e. the largest
+    // such top) is the one currently at the top of the viewport - found by
+    // best-value rather than array/iteration order, since targetEls isn't
+    // guaranteed to be in document order (the three Projects category
+    // targets aren't in the same order as the planets that point to them).
+    let current = targetEls[0];
+    let bestTop = -Infinity;
+    targetEls.forEach((el) => {
+      if (!el) return;
+      const top = el.getBoundingClientRect().top;
+      if (top <= 120 && top > bestTop) {
+        bestTop = top;
+        current = el;
+      }
+    });
+    return current;
   }
 
   function update() {
-    const activeId = currentSectionId();
-    planetEls.forEach((el) => {
-      const target = el.getAttribute("href").slice(1);
-      el.classList.toggle("active", target === activeId);
-    });
+    const active = currentTarget();
+    planetEls.forEach((el, i) => el.classList.toggle("active", targetEls[i] === active));
   }
 
   window.addEventListener("scroll", () => {

@@ -2,9 +2,8 @@
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("resume-link").href = RESUME_URL;
 
-  // ---------- Render Projects ----------
-  const projectsGrid = document.getElementById("projects-grid");
-  projectsGrid.innerHTML = PROJECTS.map((p) => `
+  // ---------- Render Projects (grouped by category) ----------
+  const cardHtml = (p) => `
     <article class="card">
       <div class="card-image">
         <img src="${p.image}" alt="${p.name} screenshot" loading="lazy" />
@@ -20,7 +19,16 @@
         </div>
       </div>
     </article>
-  `).join("");
+  `;
+  const CATEGORY_GRID_IDS = {
+    "Computer Vision": "projects-grid-cv",
+    "NLP & LLM": "projects-grid-nlp",
+    "Data & MLOps": "projects-grid-data",
+  };
+  PROJECT_CATEGORIES.forEach((category) => {
+    const gridEl = document.getElementById(CATEGORY_GRID_IDS[category]);
+    gridEl.innerHTML = PROJECTS.filter((p) => p.category === category).map(cardHtml).join("");
+  });
 
   // ---------- Render Experience ----------
   const timeline = document.getElementById("experience-timeline");
@@ -44,6 +52,12 @@
   document.getElementById("skills-row").innerHTML = SKILLS
     .map((s) => `<span class="chip">${s}</span>`)
     .join("");
+
+  // ---------- Render Certifications & Extracurriculars ----------
+  const chipify = (items) => items.map((s) => `<span class="chip">${s}</span>`).join("");
+  document.getElementById("nptel-row").innerHTML = chipify(NPTEL_CERTIFICATIONS);
+  document.getElementById("other-certs-row").innerHTML = chipify(OTHER_CERTIFICATIONS);
+  document.getElementById("extracurriculars-row").innerHTML = chipify(EXTRACURRICULARS);
 
   // ---------- Smooth-scroll nav + active link highlighting ----------
   const navLinks = document.querySelectorAll(".nav-links a");
