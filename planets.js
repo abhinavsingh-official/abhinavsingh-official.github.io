@@ -1,17 +1,17 @@
 // A vertical "solar system" scroll rail on the right edge of the page.
-// Each planet (plus the Sun) owns an even 1/9th slice of total scroll
-// progress - not tied to exact section boundaries - so it highlights
-// smoothly regardless of how long any one section is. Sizes are relative
-// to real diameters but compressed (power curve) so Mercury stays visible
-// next to Jupiter - "somewhat to scale," not literal, or the rail would be
-// unreadable. Driven by the same shared requestAnimationFrame loop as the
-// starfield (see main.js) rather than its own scroll listener loop.
+// Sizes are relative to real diameters but compressed (power curve) so
+// Pluto stays visible next to Jupiter - "somewhat to scale," not literal,
+// or the rail would be unreadable. Driven by the same shared
+// requestAnimationFrame loop as the starfield (see main.js) rather than
+// its own scroll listener loop.
 
 (function () {
+  // About/Contact were dropped as separate sections (the index itself
+  // covers it), so the rail runs Sun + Mars-through-Pluto - a smaller
+  // solar system, but every body still maps to exactly one distinct
+  // section.
   const BODIES = [
     { name: "Sun", radiusKm: 696000, color: "#ffcf5c", glow: "#ffb703", target: "#home" },
-    { name: "Mercury", radiusKm: 2440, color: "#b0a69b", glow: "#8d847a", target: "#contact" },
-    { name: "Venus", radiusKm: 6052, color: "#e8c88f", glow: "#d9a441", target: "#about" },
     { name: "Earth", radiusKm: 6371, color: "#5ad8ff", glow: "#3a9bd1", target: "#projects-data" },
     { name: "Mars", radiusKm: 3390, color: "#e2654a", glow: "#b8402a", target: "#projects-cv" },
     { name: "Jupiter", radiusKm: 69911, color: "#d9b38c", glow: "#b7875a", target: "#projects-nlp" },
@@ -26,8 +26,6 @@
   // split out of Experience, specifically so every body gets one).
   const SECTION_LABELS = {
     "#home": "Home",
-    "#contact": "Contact",
-    "#about": "About",
     "#projects-data": "Data & MLOps",
     "#projects-cv": "Computer Vision",
     "#projects-nlp": "NLP & LLM",
