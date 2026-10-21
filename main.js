@@ -73,9 +73,10 @@
   );
   sections.forEach((s) => navObserver.observe(s));
 
-  // ---------- Single shared animation loop (starfield lives here too, see starfield.js) ----------
+  // ---------- Single shared animation loop (starfield + planet rail both hook in here) ----------
   function tick(time) {
     if (window.__drawStarfield) window.__drawStarfield(time);
+    if (window.__updatePlanets) window.__updatePlanets();
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);

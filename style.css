@@ -367,6 +367,90 @@ section.in-view {
   font-size: 0.8rem;
 }
 
+/* ---------- Planet scroll rail ---------- */
+
+.planet-rail {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 170px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  padding-right: 18px;
+}
+
+.planet-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  padding: 0.2rem 0;
+  cursor: pointer;
+}
+
+.planet {
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, color-mix(in srgb, var(--color) 70%, white), var(--color) 55%, var(--glow) 100%);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--glow) 60%, transparent);
+  opacity: 0.5;
+  transform: scale(1);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.planet.planet-ring::after {
+  content: "";
+  position: absolute;
+  inset: -35% -10%;
+  border: 2px solid color-mix(in srgb, var(--color) 60%, transparent);
+  border-radius: 50%;
+  transform: rotate(-18deg) scaleY(0.35);
+}
+
+.planet-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  white-space: nowrap;
+  opacity: 0.55;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.planet-item:hover .planet {
+  opacity: 0.85;
+  transform: scale(1.15);
+}
+
+.planet-item:hover .planet-label {
+  opacity: 0.9;
+}
+
+.planet-item.active .planet {
+  opacity: 1;
+  transform: translateX(10px) scale(1.35);
+  box-shadow: 0 0 22px 4px var(--glow);
+}
+
+.planet-item.active .planet-label {
+  opacity: 1;
+  color: var(--accent);
+}
+
+@media (max-width: 1000px) {
+  .planet-rail {
+    display: none;
+  }
+}
+
 @media (max-width: 640px) {
   .nav {
     flex-wrap: wrap;
