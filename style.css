@@ -62,7 +62,15 @@ body {
   color: var(--accent);
   text-decoration: none;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.03em;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .nav-brand {
+    font-size: 0.6rem;
+  }
 }
 
 .nav-links {
