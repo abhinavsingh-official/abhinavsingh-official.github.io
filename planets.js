@@ -20,6 +20,15 @@
     { name: "Neptune", radiusKm: 24622, color: "#5a7bdc", glow: "#3a53a8", target: "#contact" },
   ];
 
+  const SECTION_LABELS = {
+    "#home": "Home",
+    "#about": "About",
+    "#projects": "Projects",
+    "#experience": "Experience",
+    "#skills": "Skills",
+    "#contact": "Contact",
+  };
+
   const MAX_R = Math.max(...BODIES.map((b) => b.radiusKm));
   const MIN_SIZE = 10;
   const MAX_SIZE = 34;
@@ -40,6 +49,7 @@
     const item = document.createElement("a");
     item.className = "planet-item";
     item.href = body.target;
+    item.title = body.name;
 
     const el = document.createElement("span");
     el.className = "planet" + (body.ring ? " planet-ring" : "");
@@ -49,7 +59,7 @@
 
     const label = document.createElement("span");
     label.className = "planet-label";
-    label.textContent = body.name;
+    label.textContent = SECTION_LABELS[body.target] || body.name;
 
     item.appendChild(el);
     item.appendChild(label);
