@@ -204,6 +204,18 @@ section.in-view {
   max-width: 700px;
 }
 
+.panel-contact {
+  text-align: center;
+}
+
+.panel-contact h2 {
+  justify-content: center;
+}
+
+.panel-contact .contact-links {
+  justify-content: center;
+}
+
 /* ---------- Subheadings (Projects categories, Certifications groups) ---------- */
 
 .subheading {
