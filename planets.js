@@ -10,28 +10,31 @@
 (function () {
   const BODIES = [
     { name: "Sun", radiusKm: 696000, color: "#ffcf5c", glow: "#ffb703", target: "#home" },
-    { name: "Mercury", radiusKm: 2440, color: "#b0a69b", glow: "#8d847a", target: "#about" },
-    { name: "Venus", radiusKm: 6052, color: "#e8c88f", glow: "#d9a441", target: "#certifications" },
-    { name: "Earth", radiusKm: 6371, color: "#5ad8ff", glow: "#3a9bd1", target: "#projects-cv" },
-    { name: "Mars", radiusKm: 3390, color: "#e2654a", glow: "#b8402a", target: "#projects-data" },
+    { name: "Mercury", radiusKm: 2440, color: "#b0a69b", glow: "#8d847a", target: "#contact" },
+    { name: "Venus", radiusKm: 6052, color: "#e8c88f", glow: "#d9a441", target: "#about" },
+    { name: "Earth", radiusKm: 6371, color: "#5ad8ff", glow: "#3a9bd1", target: "#projects-data" },
+    { name: "Mars", radiusKm: 3390, color: "#e2654a", glow: "#b8402a", target: "#projects-cv" },
     { name: "Jupiter", radiusKm: 69911, color: "#d9b38c", glow: "#b7875a", target: "#projects-nlp" },
     { name: "Saturn", radiusKm: 58232, color: "#e8d6a8", glow: "#c9a86a", ring: true, target: "#experience" },
-    { name: "Uranus", radiusKm: 25362, color: "#9fe8e0", glow: "#5fc2b8", target: "#skills" },
-    { name: "Neptune", radiusKm: 24622, color: "#5a7bdc", glow: "#3a53a8", target: "#contact" },
+    { name: "Uranus", radiusKm: 25362, color: "#9fe8e0", glow: "#5fc2b8", target: "#education" },
+    { name: "Neptune", radiusKm: 24622, color: "#5a7bdc", glow: "#3a53a8", target: "#skills" },
+    { name: "Pluto", radiusKm: 1188, color: "#c9b8a8", glow: "#8f7d6c", target: "#certifications" },
   ];
 
-  // Every planet now has its own distinct label - no two point at the same
-  // place (Projects was split into three real categories for exactly this).
+  // Every planet has its own distinct label - no two point at the same
+  // place (Projects was split into three real categories, Education was
+  // split out of Experience, specifically so every body gets one).
   const SECTION_LABELS = {
     "#home": "Home",
+    "#contact": "Contact",
     "#about": "About",
-    "#certifications": "Certifications",
-    "#projects-cv": "Computer Vision",
     "#projects-data": "Data & MLOps",
+    "#projects-cv": "Computer Vision",
     "#projects-nlp": "NLP & LLM",
     "#experience": "Experience",
+    "#education": "Education",
     "#skills": "Skills",
-    "#contact": "Contact",
+    "#certifications": "Certifications",
   };
 
   const MAX_R = Math.max(...BODIES.map((b) => b.radiusKm));

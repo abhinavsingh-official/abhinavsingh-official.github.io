@@ -31,22 +31,22 @@
   });
 
   // ---------- Render Experience ----------
-  const timeline = document.getElementById("experience-timeline");
-  const experienceHtml = EXPERIENCE.map((e) => `
+  document.getElementById("experience-timeline").innerHTML = EXPERIENCE.map((e) => `
     <div class="timeline-item">
       <h3>${e.title} &mdash; ${e.org}</h3>
       <p class="timeline-meta">${e.location} &middot; ${e.dates}</p>
       <p class="timeline-summary">${e.summary}</p>
     </div>
   `).join("");
-  const educationHtml = `
+
+  // ---------- Render Education ----------
+  document.getElementById("education-timeline").innerHTML = `
     <div class="timeline-item">
       <h3>${EDUCATION.degree} &mdash; ${EDUCATION.school}</h3>
       <p class="timeline-meta">${EDUCATION.dates}</p>
       <p class="timeline-summary">${EDUCATION.summary}</p>
     </div>
   `;
-  timeline.innerHTML = experienceHtml + educationHtml;
 
   // ---------- Render Skills ----------
   document.getElementById("skills-row").innerHTML = SKILLS
@@ -54,10 +54,24 @@
     .join("");
 
   // ---------- Render Certifications & Extracurriculars ----------
-  const chipify = (items) => items.map((s) => `<span class="chip">${s}</span>`).join("");
-  document.getElementById("nptel-row").innerHTML = chipify(NPTEL_CERTIFICATIONS);
-  document.getElementById("other-certs-row").innerHTML = chipify(OTHER_CERTIFICATIONS);
-  document.getElementById("extracurriculars-row").innerHTML = chipify(EXTRACURRICULARS);
+  const certCardHtml = (c) => `
+    <article class="card">
+      <div class="card-image">
+        <img src="${c.image}" alt="${c.name} certificate" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <h3>${c.name}</h3>
+        </div>
+        <span class="card-tag">${c.meta}</span>
+      </div>
+    </article>
+  `;
+  document.getElementById("courses-grid").innerHTML = COURSES.map(certCardHtml).join("");
+  document.getElementById("extracurriculars-grid").innerHTML = EXTRACURRICULARS.map(certCardHtml).join("");
+  document.getElementById("extracurriculars-text-row").innerHTML = EXTRACURRICULARS_TEXT
+    .map((s) => `<span class="chip">${s}</span>`)
+    .join("");
 
   // ---------- Smooth-scroll nav + active link highlighting ----------
   const navLinks = document.querySelectorAll(".nav-links a");

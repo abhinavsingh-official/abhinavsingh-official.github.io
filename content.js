@@ -118,29 +118,32 @@ const SKILLS = [
   "SQLite", "Docker", "Git",
 ];
 
-const NPTEL_CERTIFICATIONS = [
-  "Business Intelligence & Analytics (71%)",
-  "Foundation of Cloud IoT Edge ML (72%)",
-  "Big Data Computing (71%)",
-  "The Joy of Computing using Python (69%)",
-  "Responsible & Safe AI Systems (66%)",
-  "Data Analytics with Python (65%)",
-  "Recommender Systems (67%)",
-  "Data Mining (60%)",
-  "Probability for Computer Science (57%)",
-  "Design and Analysis of Algorithms (51%)",
-];
-
-const OTHER_CERTIFICATIONS = [
-  "IBM SkillsBuild — From Learner to Builder: Become an AI Agent Architect",
-  "Deloitte Australia — Data Analytics Job Simulation (Forage)",
-  "SWAYAM — Data Analysis",
+// Courses: NPTEL certificates (with score) + other industry certifications,
+// all backed by a real certificate image.
+const COURSES = [
+  { name: "Business Intelligence & Analytics", meta: "NPTEL · 71%", image: "assets/certs/nptel-business-intelligence-analytics-1.jpg" },
+  { name: "Foundation of Cloud IoT Edge ML", meta: "NPTEL · 72%", image: "assets/certs/nptel-foundation-of-cloud-iot-edge-ml-1.jpg" },
+  { name: "Big Data Computing", meta: "NPTEL · 71%", image: "assets/certs/nptel-big-data-computing-1.jpg" },
+  { name: "The Joy of Computing using Python", meta: "NPTEL · 69%", image: "assets/certs/nptel-the-joy-of-computing-using-python-1.jpg" },
+  { name: "Responsible & Safe AI Systems", meta: "NPTEL · 66%", image: "assets/certs/nptel-responsible---safe-ai-systems-1.jpg" },
+  { name: "Data Analytics with Python", meta: "NPTEL · 65%", image: "assets/certs/nptel-data-analytics-with-python-1.jpg" },
+  { name: "Recommender Systems", meta: "NPTEL · 67%", image: "assets/certs/nptel-recommender-systems-1.jpg" },
+  { name: "Data Mining", meta: "NPTEL · 60%", image: "assets/certs/nptel-data-mining-1.jpg" },
+  { name: "Probability for Computer Science", meta: "NPTEL · 57%", image: "assets/certs/nptel-probability-for-computer-science-1.jpg" },
+  { name: "Design and Analysis of Algorithms", meta: "NPTEL · 51%", image: "assets/certs/nptel-design-and-analysis-of-algorithms-1.jpg" },
+  { name: "From Learner to Builder: AI Agent Architect", meta: "IBM SkillsBuild", image: "assets/certs/other-ibm-ai-agent-architect.jpg" },
+  { name: "Data Analytics Job Simulation", meta: "Deloitte Australia (Forage)", image: "assets/certs/other-deloitte-data-analytics.jpg" },
+  { name: "Data Analysis", meta: "SWAYAM", image: "assets/certs/other-swayam-data-analysis.jpg" },
 ];
 
 const EXTRACURRICULARS = [
-  "2nd Position, Research Paper Presentation — Stratum'24, Ramanujan College (DU)",
-  "HackVSIT 5th Edition — Certificate of Appreciation",
-  "Vihaan 007 Hackathon — IEEE DTU",
+  { name: "2nd Position, Research Paper Presentation", meta: "Stratum'24, Ramanujan College (DU)", image: "assets/certs/extra-stratum24.jpg" },
+  { name: "HackVSIT 5th Edition", meta: "Certificate of Appreciation", image: "assets/certs/extra-hackvsit.jpg" },
+  { name: "Vihaan 007 Hackathon", meta: "IEEE DTU", image: "assets/certs/extra-vihaan007.jpg" },
+];
+
+// No certificate image exists for these - just real activities/roles.
+const EXTRACURRICULARS_TEXT = [
   "Core Member, Technical Club ACE",
   "Women's safety & empowerment NGO work (GC Club)",
   "College hackathon management",
