@@ -10,7 +10,6 @@
   // every body maps to exactly one distinct section.
   const BODIES = [
     { name: "Sun", radiusKm: 696000, color: "#ffcf5c", glow: "#ffb703", target: "#home" },
-    { name: "Mercury", radiusKm: 2440, color: "#b0a69b", glow: "#8d847a", target: "#contact" },
     { name: "Venus", radiusKm: 6052, color: "#e8c88f", glow: "#d9a441", target: "#about" },
     { name: "Earth", radiusKm: 6371, color: "#5ad8ff", glow: "#3a9bd1", target: "#projects-data" },
     { name: "Mars", radiusKm: 3390, color: "#e2654a", glow: "#b8402a", target: "#projects-cv" },
@@ -19,6 +18,7 @@
     { name: "Uranus", radiusKm: 25362, color: "#9fe8e0", glow: "#5fc2b8", target: "#education" },
     { name: "Neptune", radiusKm: 24622, color: "#5a7bdc", glow: "#3a53a8", target: "#personal" },
     { name: "Pluto", radiusKm: 1188, color: "#c9b8a8", glow: "#8f7d6c", target: "#certifications" },
+    { name: "Mercury", radiusKm: 2440, color: "#b0a69b", glow: "#8d847a", target: "#contact" },
   ];
 
   // Every planet has its own distinct label - no two point at the same
