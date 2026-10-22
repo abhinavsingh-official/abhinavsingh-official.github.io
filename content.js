@@ -16,6 +16,20 @@ const PROJECTS = [
     repo: "https://github.com/abhinavsingh-official/data-infra-learn",
   },
   {
+    name: "Economic Ripple",
+    tag: "Simulation",
+    category: "Data & MLOps",
+    image: "assets/projects/economic-ripple.jpg",
+    repo: "https://github.com/abhinavsingh-official/economic-ripple",
+  },
+  {
+    name: "Brain Tumor Classifier",
+    tag: "Computer Vision",
+    category: "Computer Vision",
+    image: "assets/projects/brain-tumor-classifier.jpg",
+    repo: "https://github.com/abhinavsingh-official/brain-tumor-classifier",
+  },
+  {
     name: "Posture-Check",
     tag: "Computer Vision",
     category: "Computer Vision",
