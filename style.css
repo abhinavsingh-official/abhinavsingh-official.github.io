@@ -205,6 +205,27 @@ section.in-view {
   max-width: 700px;
 }
 
+#about {
+  display: flow-root; /* contains the floated photo within this section */
+}
+
+.about-photo {
+  float: right;
+  width: 180px;
+  margin: 0 0 1rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 0 22px var(--accent-soft);
+}
+
+@media (max-width: 640px) {
+  .about-photo {
+    float: none;
+    display: block;
+    margin: 0 auto 1.5rem;
+  }
+}
+
 .panel-contact {
   text-align: center;
 }
