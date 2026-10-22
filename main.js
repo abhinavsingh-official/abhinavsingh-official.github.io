@@ -5,9 +5,9 @@
   // ---------- Render Projects (grouped by category) ----------
   const cardHtml = (p) => `
     <article class="card">
-      <div class="card-image">
+      <a class="card-image" href="${p.demo || p.repo}" target="_blank" rel="noopener noreferrer">
         <img src="${p.image}" alt="${p.name} screenshot" loading="lazy" />
-      </div>
+      </a>
       <div class="card-body">
         <div class="card-top">
           <h3>${p.name}</h3>
@@ -72,33 +72,23 @@
     .map((s) => `<span class="chip">${s}</span>`)
     .join("");
 
-  // ---------- Smooth-scroll nav + active link highlighting ----------
-  const navLinks = document.querySelectorAll(".nav-links a");
+  // ---------- Scroll-reveal ----------
+  // threshold is a fraction of the *target's own height*, which breaks for
+  // very tall sections (Certifications, with 16 certificate images, is
+  // ~5500px tall) - on a short mobile viewport, that much of the section
+  // can never be visible at once, so it would never reveal. Using a fixed
+  // rootMargin instead means it just fires once the section's top enters
+  // the viewport, regardless of how tall the section itself is.
   const sections = document.querySelectorAll("main section");
-
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add("in-view");
       });
     },
-    { threshold: 0.15 }
+    { threshold: 0, rootMargin: "0px 0px -10% 0px" }
   );
   sections.forEach((s) => revealObserver.observe(s));
-
-  const navObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navLinks.forEach((link) => {
-            link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
-          });
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  sections.forEach((s) => navObserver.observe(s));
 
   // ---------- Single shared animation loop (starfield + planet rail both hook in here) ----------
   function tick(time) {

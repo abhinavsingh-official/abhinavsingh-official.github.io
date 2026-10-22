@@ -97,12 +97,22 @@
     // best-value rather than array/iteration order, since targetEls isn't
     // guaranteed to be in document order (the three Projects category
     // targets aren't in the same order as the planets that point to them).
+    //
+    // At the very bottom of the page, the last section can be short enough
+    // that its top never actually crosses below 120 (the page can't scroll
+    // any further), so that threshold check alone would leave the last
+    // planet never lighting up - handled by just picking whichever target
+    // is lowest on the page once there's no more room to scroll.
+    const doc = document.documentElement;
+    const atBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 2;
+
     let current = targetEls[0];
     let bestTop = -Infinity;
     targetEls.forEach((el) => {
       if (!el) return;
       const top = el.getBoundingClientRect().top;
-      if (top <= 120 && top > bestTop) {
+      const qualifies = atBottom ? true : top <= 120;
+      if (qualifies && top > bestTop) {
         bestTop = top;
         current = el;
       }
