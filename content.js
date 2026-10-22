@@ -20,6 +20,7 @@ const PROJECTS = [
     tag: "Simulation",
     category: "Data & MLOps",
     image: "assets/projects/economic-ripple.jpg",
+    demo: "https://economic-ripple.vercel.app",
     repo: "https://github.com/abhinavsingh-official/economic-ripple",
   },
   {
