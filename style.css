@@ -211,8 +211,9 @@ section.in-view {
 
 .about-photo {
   float: right;
-  width: 180px;
-  margin: 0 0 1rem 1.5rem;
+  width: 340px;
+  max-width: 40%;
+  margin: 0 0 1rem 2rem;
   border-radius: 10px;
   border: 1px solid var(--panel-border);
   box-shadow: 0 0 22px var(--accent-soft);
@@ -222,6 +223,8 @@ section.in-view {
   .about-photo {
     float: none;
     display: block;
+    width: 100%;
+    max-width: 340px;
     margin: 0 auto 1.5rem;
   }
 }
